@@ -1,5 +1,7 @@
 #!/bin/bash
-#####	一键安装LNMP	#####
+#####	CentOS 7一键安装LNMP	#####
+#####	Author:xiaoz			#####
+#####	Update:2017.11.19		#####
 
 #安装Nginx
 function install_nginx() {
@@ -7,11 +9,11 @@ function install_nginx() {
 	groupadd www
 	useradd -g www www
 	#下载到指定目录
-	wget https://soft.hixz.org/nginx/nginx.tar.gz -P /usr/local
+	wget https://soft.hixz.org/nginx/nginx-binary-1.12.2.tar.gz -P /usr/local
 
 	#解压
-	cd /usr/local && tar -zxvf nginx.tar.gz
-	rm -rf nginx.tar.gz
+	cd /usr/local && tar -zxvf nginx*.tar.gz
+	rm -rf nginx*.tar.gz
 	#环境变量
 	echo "export PATH=$PATH:/usr/local/nginx/sbin" >> /etc/profile
 	export PATH=$PATH:'/usr/local/nginx/sbin'
@@ -32,7 +34,7 @@ function install_db() {
 	groupadd mysql && useradd -g mysql mysql
 	
 	#下载安装包
-	wget -c http://soft.xiaoz.org/linux/mariadb-10.2.7-linux-glibc_214-x86_64.tar.gz
+	wget -c https://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-10.2.10/bintar-linux-glibc_214-x86_64/mariadb-10.2.10-linux-glibc_214-x86_64.tar.gz
 	#解压
 	tar -xvzf mariadb*.tar.gz
 	#删除
