@@ -27,6 +27,7 @@ function install_nginx() {
 
 #安装MariaDB
 function install_db() {
+	yum -y install libaio
 	read -p "设置数据库密码：" mdpass
 	#创建数据库存放目录
 	mkdir -p /data/mariadb
